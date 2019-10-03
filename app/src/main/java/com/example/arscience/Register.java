@@ -116,15 +116,12 @@ public class Register extends AppCompatActivity {
         }else if(Email.isEmpty()){
             mBar.setVisibility(View.GONE);
             email.setError("Kindly enter Email address");
-        }else if(Pass.equals(ConfirmPass)){
+        }else if(!Pass.equals(ConfirmPass)){
             mBar.setVisibility(View.GONE);
             confirmpass.setError("Passwords don't match");
         }else if(Pass.isEmpty()){
             mBar.setVisibility(View.GONE);
             password.setError("Password is required");
-        }else if(ConfirmPass.isEmpty()){
-            mBar.setVisibility(View.GONE);
-            confirmpass.setError("Password is required");
         }else{
             registeruser(BaseURL.getRegister(Email,Names,Pass));
         }
@@ -157,11 +154,11 @@ public class Register extends AppCompatActivity {
 
                 String message = null;
                 if (error instanceof NetworkError) {
-                    message = "Cannot connect to Internet...Please check your connection!";
+                    message = "Network Error, cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
                 } else if (error instanceof AuthFailureError) {
-                    message = "Cannot connect to Internet...Please check your connection!";
+                    message = "Auth Failure, Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof ParseError) {
                     message = "Invalid Credentials! Please try again!!";
                 } else if (error instanceof TimeoutError) {

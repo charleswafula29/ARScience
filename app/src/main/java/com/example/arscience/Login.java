@@ -144,11 +144,11 @@ public class Login extends AppCompatActivity {
 
                 String message = null;
                 if (error instanceof NetworkError) {
-                    message = "Cannot connect to Internet...Please check your connection!";
+                    message = "Network Error, cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof ServerError) {
                     message = "The server could not be found. Please try again after some time!!";
                 } else if (error instanceof AuthFailureError) {
-                    message = "Cannot connect to Internet...Please check your connection!";
+                    message = "Auth Failure, Cannot connect to Internet...Please check your connection!";
                 } else if (error instanceof ParseError) {
                     message = "Invalid Credentials! Please try again!!";
                 } else if (error instanceof TimeoutError) {
