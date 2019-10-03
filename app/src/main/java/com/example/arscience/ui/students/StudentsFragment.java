@@ -15,20 +15,12 @@ import com.example.arscience.R;
 
 public class StudentsFragment extends Fragment {
 
-    private StudentsViewModel studentsViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        studentsViewModel =
-                ViewModelProviders.of(this).get(StudentsViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_students, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        studentsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        textView.setText("Studie page");
         return root;
     }
 }

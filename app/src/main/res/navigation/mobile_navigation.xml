@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.arscience.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.arscience.ui.home.CourseworkFragment"
+        android:label="@string/title_Coursework"
+        tools:layout="@layout/fragment_coursework" />
 
     <fragment
         android:id="@+id/navigation_students"

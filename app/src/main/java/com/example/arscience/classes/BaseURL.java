@@ -24,8 +24,8 @@ public class BaseURL {
     }
 
     //returns json array 'Students' of all students in a single class
-    public static String getAllStudents(String classname){
-        return url+"studentslist.php?classname="+classname;
+    public static String getAllStudents(String classcode){
+        return url+"studentslist.php?classcode="+classcode;
     }
 
     //Returns String response => Class deleted or Class not deleted

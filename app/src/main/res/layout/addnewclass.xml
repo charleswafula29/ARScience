@@ -67,4 +67,15 @@
                 android:textAllCaps="true"
                 android:textStyle="bold" />
 
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/New_progressbar"
+                android:indeterminateDrawable="@drawable/progressbar"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
 </LinearLayout>

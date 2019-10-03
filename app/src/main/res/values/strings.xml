@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ARScience</string>
     <string name="title_activity_teacher_class_home">TeacherClassHome</string>
-    <string name="title_home">Coursework</string>
+    <string name="title_Coursework">Coursework</string>
     <string name="title_students">Students</string>
     <string name="title_repository">Repository</string>
     <string name="title_activity_single__teacher__class__homepage">Single_Teacher_Class_Homepage

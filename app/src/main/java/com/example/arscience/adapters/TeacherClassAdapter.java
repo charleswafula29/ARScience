@@ -12,9 +12,12 @@ import android.widget.TextView;
 
 import com.example.arscience.MainActivity;
 import com.example.arscience.R;
+import com.example.arscience.Single_Teacher_Class_Homepage;
 import com.example.arscience.classes.TeacherClass;
 
 import java.util.List;
+
+import io.paperdb.Paper;
 
 public class TeacherClassAdapter extends RecyclerView.Adapter<TeacherClassAdapter.ViewHolder> {
     private Context mCtx;
@@ -43,8 +46,12 @@ public class TeacherClassAdapter extends RecyclerView.Adapter<TeacherClassAdapte
         viewHolder.view_foreground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent=new Intent(mCtx, Single_Teacher_Class_Homepage.class);
-                Intent intent=new Intent(mCtx, MainActivity.class);
+                String longcode = teacherClass.getClasscode();
+                String code= longcode.substring(6,14);
+                Intent intent=new Intent(mCtx, Single_Teacher_Class_Homepage.class);
+//                intent.putExtra("Classcode",code);
+                Paper.init(mCtx);
+                Paper.book().write("Classcode",code);
                 mCtx.startActivity(intent);
             }
         });
