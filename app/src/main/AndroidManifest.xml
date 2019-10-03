@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.example.arscience">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/circlelogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/circlelogo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Single_Teacher_Class_Homepage"
+            android:label="@string/title_activity_single__teacher__class__homepage"></activity>
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNoBar" />
+        <activity
+            android:name=".TeacherClasses"
+            android:label="My Classrooms"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".StudentClasses" />
+        <activity android:name=".StudentHomepage" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNoBar" />
+        <activity
+            android:name=".SelectLevel"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNoBar" />
+        <activity
+            android:name=".Splashscreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNoBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
+    </application>
+
+    <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <dist:module dist:instant="true" />
+
+</manifest>

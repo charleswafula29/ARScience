@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="15dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Classroom"
+        android:fontFamily="@font/nunito_extralight"
+        android:textColor="@color/LoginOrange"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+            <EditText
+                android:id="@+id/New_classname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:hint="Class name"
+                android:drawableStart="@drawable/ic_class"
+                android:textSize="15sp"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/LoginOrange"
+                />
+
+            <EditText
+                android:id="@+id/New_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:hint="Class Description"
+                android:drawableStart="@drawable/ic_class"
+                android:textSize="15sp"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/LoginOrange"
+                />
+
+            <Button
+                android:id="@+id/Create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/buttonbackground"
+                android:text="Create"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/nunito_extralight"
+                android:textAllCaps="true"
+                android:textStyle="bold" />
+
+</LinearLayout>
