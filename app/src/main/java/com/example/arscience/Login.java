@@ -51,6 +51,7 @@ public class Login extends AppCompatActivity {
 
         Paper.init(this);
         Paper.book().write("Teacher_id","none");
+        Paper.book().write("Snumber","none");
 
         BtnLogin= findViewById(R.id.Login);
         TxtRegister=findViewById(R.id.Register);

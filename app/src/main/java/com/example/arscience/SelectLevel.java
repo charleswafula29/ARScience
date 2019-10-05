@@ -35,7 +35,7 @@ public class SelectLevel extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Paper.book().write("user_type","Student");
-                startActivity(new Intent(SelectLevel.this,StudentClasses.class));
+                startActivity(new Intent(SelectLevel.this,StudentLogin.class));
                 finish();
             }
         });

@@ -45,8 +45,8 @@ public class BaseURL {
     }
 
     //Returns json array 'Classes' of all the student's classes
-    public static String getStudentClasses(String Snumber, String Snames){
-        return url+"studentclasses.php?Snumber="+Snumber+"&Snames="+Snames;
+    public static String getStudentClasses(String Snumber){
+        return url+"studentclasses.php?Snumber="+Snumber;
     }
 
 

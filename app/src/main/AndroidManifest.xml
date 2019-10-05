@@ -3,8 +3,6 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.arscience">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/circlelogo"
@@ -13,8 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:theme="@style/AppNoBar"
+            android:name=".StudentLogin"
+            android:screenOrientation="portrait"
+            />
+        <activity
             android:name=".Single_Teacher_Class_Homepage"
-            android:label="@string/title_activity_single__teacher__class__homepage"></activity>
+            android:label="@string/title_activity_single__teacher__class__homepage" />
         <activity
             android:name=".Register"
             android:screenOrientation="portrait"
@@ -24,7 +27,12 @@
             android:label="My Classrooms"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".StudentClasses" />
+        <activity
+            android:name=".StudentClasses"
+            android:label="My Classrooms"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            />
         <activity android:name=".StudentHomepage" />
         <activity
             android:name=".Login"
@@ -56,6 +64,8 @@
         android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <dist:module dist:instant="true" />
 

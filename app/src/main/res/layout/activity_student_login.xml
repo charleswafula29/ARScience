@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentLogin"
+    android:background="@drawable/splash">
+
+    <ImageView
+        android:id="@+id/logologo"
+        android:layout_width="172dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textBelowLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/nunito_extralight"
+        android:padding="10dp"
+        android:text="Welcome Student, Enter your details to proceed."
+        android:textColor="@color/Orange"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logologo" />
+
+    <EditText
+        android:id="@+id/StudentLoginNames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="18dp"
+        android:padding="10dp"
+        android:hint="Full Names"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/ic_names"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/LoginOrange"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/nunito_extralight"
+        android:textColor="@color/LoginOrange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBelowLogo" />
+
+    <EditText
+        android:id="@+id/StudentLoginNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:padding="10dp"
+        android:hint="Student Number"
+        android:textSize="15sp"
+        android:drawableStart="@drawable/ic_names"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/LoginOrange"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/nunito_extralight"
+        android:textColor="@color/LoginOrange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StudentLoginNames" />
+
+
+    <Button
+        android:id="@+id/StudentLoginContinue"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:fontFamily="@font/nunito_extralight"
+        android:paddingEnd="18dp"
+        android:paddingStart="18dp"
+        android:text="Continue"
+        android:drawableEnd="@drawable/ic_proceed"
+        android:drawableTint="@color/LoginOrange"
+        android:textAllCaps="false"
+        android:textColor="@color/Orange"
+        android:background="@drawable/rounded_button"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StudentLoginNumber" />
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/StudentLoginProgressBar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:indeterminateDrawable="@drawable/progressbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/StudentLoginContinue"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

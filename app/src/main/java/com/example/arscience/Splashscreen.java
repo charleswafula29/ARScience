@@ -12,7 +12,7 @@ public class Splashscreen extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 2500;
     SharedPreferences prefs = null;
-    String User, Teacher_id;
+    String User, Teacher_id,Snumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +48,15 @@ public class Splashscreen extends AppCompatActivity {
     private void checkSession() {
         User=Paper.book().read("user_type").toString();
         Teacher_id=Paper.book().read("Teacher_id").toString();
+        Snumber=Paper.book().read("Snumber").toString();
         if(User.equals("Student")){
-            startActivity(new Intent(Splashscreen.this,StudentClasses.class));
-            finish();
+            if(Snumber.equals("none")){
+                startActivity(new Intent(Splashscreen.this,StudentLogin.class));
+                finish();
+            }else {
+                startActivity(new Intent(Splashscreen.this, StudentClasses.class));
+                finish();
+            }
         }else if(User.equals("Teacher")){
             if(Teacher_id.equals("none")){
                 startActivity(new Intent(Splashscreen.this,Login.class));

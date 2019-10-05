@@ -101,7 +101,7 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         classList=new ArrayList<>();
 
         StringRequest stringRequest= new StringRequest(
@@ -120,7 +120,7 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
                                 text.setVisibility(View.VISIBLE);
                                 image.setVisibility(View.VISIBLE);
                                 refresh.setVisibility(View.VISIBLE);
-                                Toast.makeText(TeacherClasses.this, "You don't have any classes", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TeacherClasses.this, "You don't have any classes", Toast.LENGTH_LONG).show();
                             }
 
                             for(int i=0 ; i<jsonArray.length();i++){
@@ -220,7 +220,7 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
                         public void onResponse(String response) {
                             if(response.equals("created")){
                                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-                                Toast.makeText(TeacherClasses.this, "New Class created", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(TeacherClasses.this, "New Class created", Toast.LENGTH_LONG).show();
                                 dialog.dismiss();
                                 fetch(BaseURL.getTeacherClasses(teacher_id));
                             }else if(response.equals("name already in use")){

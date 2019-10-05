@@ -11,7 +11,6 @@
     >
 
     <Button
-        android:visibility="gone"
         android:id="@+id/TeacherRefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,13 +19,15 @@
         android:background="@drawable/buttonbackground"
         android:fontFamily="@font/nunito_extralight"
         android:padding="5dp"
-        android:layout_marginBottom="70dp"
         android:text="Refresh"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Teachernotfound" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/TeacherClassesRecycler"
@@ -43,13 +44,13 @@
     <ProgressBar
         android:visibility="gone"
         android:id="@+id/TeacherProgressBar"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:indeterminateDrawable="@drawable/progressbar"
-        app:layout_constraintBottom_toBottomOf="@+id/TeacherClassesRecycler"
-        app:layout_constraintEnd_toEndOf="@+id/TeacherClassesRecycler"
-        app:layout_constraintStart_toStartOf="@+id/TeacherClassesRecycler"
-        app:layout_constraintTop_toTopOf="@+id/TeacherClassesRecycler" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:visibility="gone"
@@ -57,10 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_extralight"
-        android:text="No classes found!"
+        android:text="Sorry, No classes found!"
         android:textAllCaps="false"
         android:textColor="@color/LoginOrange"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Teachernotfound"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,10 +71,10 @@
     <ImageView
         android:visibility="gone"
         android:id="@+id/Teachernotfound"
-        android:layout_width="176dp"
-        android:layout_height="175dp"
+        android:layout_width="147dp"
+        android:layout_height="145dp"
         android:src="@drawable/sorryicon"
-        app:layout_constraintBottom_toTopOf="@+id/TeacherRefresh"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
