@@ -32,8 +32,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.arscience.Helper.RecyclerItemTouchHelper;
 import com.example.arscience.Helper.RecyclerItemTouchHelperListener;
+import com.example.arscience.adapters.StudentClassAdapter;
 import com.example.arscience.adapters.TeacherClassAdapter;
 import com.example.arscience.classes.BaseURL;
+import com.example.arscience.classes.StudentClass;
 import com.example.arscience.classes.TeacherClass;
 
 import org.json.JSONArray;
@@ -45,12 +47,12 @@ import java.util.List;
 
 import io.paperdb.Paper;
 
-public class StudentClasses extends AppCompatActivity implements RecyclerItemTouchHelperListener {
+public class StudentClasses extends AppCompatActivity {
 
     String Snumber, Snames;
     RecyclerView recyclerView;
-    TeacherClassAdapter adapter;
-    List<TeacherClass> classList;
+    StudentClassAdapter adapter;
+    List<StudentClass> list;
     ProgressBar mBar;
     TextView text;
     ImageView image;
@@ -83,15 +85,10 @@ public class StudentClasses extends AppCompatActivity implements RecyclerItemTou
             }
         });
 
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback
-                =new RecyclerItemTouchHelper(0,ItemTouchHelper.LEFT,this);
-
-        new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        classList=new ArrayList<>();
+        list=new ArrayList<>();
 
     }
 
@@ -121,17 +118,17 @@ public class StudentClasses extends AppCompatActivity implements RecyclerItemTou
 
                             for(int i=0 ; i<jsonArray.length();i++){
                                 JSONObject object=jsonArray.getJSONObject(i);
-                                classList.add(new TeacherClass(object.getString("classname"),
+                                list.add(new StudentClass(object.getString("classname"),
                                         object.getString("classdesc"),
                                         "Code: "+object.getString("classcode")));
                             }
 
-                            adapter=new TeacherClassAdapter(StudentClasses.this,classList);
+                            adapter=new StudentClassAdapter(StudentClasses.this,list);
                             recyclerView.setAdapter(adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            classList.clear();
+                            list.clear();
                         }
 
                     }
@@ -214,7 +211,7 @@ public class StudentClasses extends AppCompatActivity implements RecyclerItemTou
                                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                             Toast.makeText(StudentClasses.this, "Joined class", Toast.LENGTH_LONG).show();
                                             dialog.dismiss();
-                                            classList.clear();
+                                            list.clear();
                                             fetchclasses(BaseURL.getStudentClasses(Snumber));
                                         }else if(response.equals("class not joined")){
                                             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -267,8 +264,4 @@ public class StudentClasses extends AppCompatActivity implements RecyclerItemTou
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
-
-    }
 }
