@@ -45,3 +45,71 @@ sceneform.asset('sampledata/model.obj',
         'default',
         'sampledata/model.sfa',
         'src/main/assets/model')
+
+sceneform.asset('sampledata/microscope_advanced.obj',
+        'default',
+        'sampledata/microscope_advanced.sfa',
+        'src/main/assets/microscope_advanced')
+
+sceneform.asset('sampledata/skeleton.OBJ',
+        'default',
+        'sampledata/skeleton.sfa',
+        'src/main/assets/skeleton')
+
+sceneform.asset('sampledata/earth_ball.obj',
+        'default',
+        'sampledata/earth_ball.sfa',
+        'src/main/assets/earth_ball')
+
+sceneform.asset('sampledata/Dandelion_428.obj',
+        'default',
+        'sampledata/Dandelion_428.sfa',
+        'src/main/assets/Dandelion_428')
+
+sceneform.asset('sampledata/skull.obj',
+        'default',
+        'sampledata/skull.sfa',
+        'src/main/assets/skull')
+
+sceneform.asset('sampledata/PUSHILIN_sun.obj',
+        'default',
+        'sampledata/PUSHILIN_sun.sfa',
+        'src/main/assets/PUSHILIN_sun')
+
+sceneform.asset('sampledata/13905_Jupiter_V1_l3.obj',
+        'default',
+        'sampledata/13905_Jupiter_V1_l3.sfa',
+        'src/main/assets/13905_Jupiter_V1_l3')
+
+sceneform.asset('sampledata/Planets.obj',
+        'default',
+        'sampledata/Planets.sfa',
+        'src/main/assets/Planets')
+
+sceneform.asset('sampledata/PUSHILIN_wind_turbine.obj',
+        'default',
+        'sampledata/PUSHILIN_wind_turbine.sfa',
+        'src/main/assets/PUSHILIN_wind_turbine')
+
+
+sceneform.asset('sampledata/skin_anatomy_1.obj',
+        'default',
+        'sampledata/skin_anatomy_1.sfa',
+        'src/main/assets/skin_anatomy_1')
+
+sceneform.asset('sampledata/conifer_macedonian_pine.obj',
+        'default',
+        'sampledata/conifer_macedonian_pine.sfa',
+        'src/main/assets/conifer_macedonian_pine')
+
+
+sceneform.asset('sampledata/2632.obj',
+        'default',
+        'sampledata/2632.sfa',
+        'src/main/assets/2632')
+
+
+sceneform.asset('sampledata/rack.obj',
+        'default',
+        'sampledata/rack.sfa',
+        'src/main/assets/rack')

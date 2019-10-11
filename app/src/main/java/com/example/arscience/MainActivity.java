@@ -24,7 +24,7 @@ import com.google.ar.sceneform.ux.TransformableNode;
         assert arFragment != null;
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             Anchor anchor= hitResult.createAnchor();
-            ModelRenderable.builder().setSource(this, Uri.parse("model.sfb"))
+            ModelRenderable.builder().setSource(this, Uri.parse("skeleton.sfb"))
                     .build()
                     .thenAccept(modelRenderable -> addModelToScene(anchor,modelRenderable))
                     .exceptionally(throwable -> {
