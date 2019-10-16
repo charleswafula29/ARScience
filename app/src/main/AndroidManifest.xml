@@ -4,12 +4,13 @@
     package="com.example.arscience">
 
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.camera.ar"
         android:required="true" />
+
+    <dist:module dist:instant="true" />
 
     <application
         android:allowBackup="true"
@@ -19,10 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/AppNoBar"
+            android:name=".AddModelToClass"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppNoBar"/>
+        <activity
             android:name=".StudentLogin"
             android:screenOrientation="portrait"
-            />
+            android:theme="@style/AppNoBar" />
         <activity
             android:name=".Single_Teacher_Class_Homepage"
             android:label="@string/title_activity_single__teacher__class__homepage" />
@@ -39,8 +43,7 @@
             android:name=".StudentClasses"
             android:label="My Classrooms"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            />
+            android:theme="@style/AppTheme" />
         <activity android:name=".StudentHomepage" />
         <activity
             android:name=".Login"
@@ -65,9 +68,6 @@
         <meta-data
             android:name="com.google.ar.core"
             android:value="required" />
-
     </application>
-
-    <dist:module dist:instant="true" />
 
 </manifest>

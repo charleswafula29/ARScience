@@ -1,30 +1,58 @@
   package com.example.arscience;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.example.arscience.adapters.SingleModelAdapter;
+import com.example.arscience.classes.SingleModel;
 import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
   public class MainActivity extends AppCompatActivity {
 
       private ArFragment arFragment;
+      String model;
+//      private RecyclerView recycler;
+//      private List<SingleModel> list;
+//      private SingleModelAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = getIntent();
+        model=intent.getStringExtra("modelname");
+//        recycler=findViewById(R.id.SingleModelRecycler);
+//        recycler.setHasFixedSize(true);
+//        recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+//        list=new ArrayList<>();
+//
+//        list.add(new SingleModel(R.drawable.circlelogo,"Earth image"));
+//        list.add(new SingleModel(R.drawable.ic_email,"test image"));
+//        list.add(new SingleModel(R.drawable.ic_class,"later image"));
+//        list.add(new SingleModel(R.drawable.circlelogo,"Earth image"));
+//        list.add(new SingleModel(R.drawable.circlelogo,"Earth image"));
+//
+//        adapter=new SingleModelAdapter(this,list);
+//        recycler.setAdapter(adapter);
+
         arFragment= (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
         assert arFragment != null;
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
             Anchor anchor= hitResult.createAnchor();
-            ModelRenderable.builder().setSource(this, Uri.parse("skeleton.sfb"))
+            ModelRenderable.builder().setSource(this, Uri.parse(model))
                     .build()
                     .thenAccept(modelRenderable -> addModelToScene(anchor,modelRenderable))
                     .exceptionally(throwable -> {

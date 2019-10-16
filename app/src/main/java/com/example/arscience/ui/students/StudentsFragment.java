@@ -112,7 +112,7 @@ public class StudentsFragment extends Fragment {
 
                     for(int i=0 ; i<jsonArray.length();i++){
                         JSONObject object=jsonArray.getJSONObject(i);
-                        list.add(new Singlestudent(object.getString("Snames"),object.getString("sno"),"active"));
+                        list.add(new Singlestudent(object.getString("Snames"),"Student No. "+object.getString("sno"),"active"));
                     }
 
                     adapter=new SinglestudentAdapter(root.getContext(),list);

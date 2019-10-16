@@ -28,7 +28,7 @@ public class CourseworkFragment extends Fragment {
         Paper.init(root.getContext());
         String code=Paper.book().read("Classcode");
 
-        Toast.makeText(root.getContext(), code, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(root.getContext(), code, Toast.LENGTH_SHORT).show();
         return root;
     }
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<android.support.v7.widget.CardView
+    app:cardCornerRadius="6dp"
+    android:padding="8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/Repository_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/circlelogo"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/Repository_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Repository_modelName"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Model name"
+            android:textStyle="bold"
+            android:textColor="@color/LoginOrange"
+            android:fontFamily="@font/nunito_extralight"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Repository_status"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="Animated"
+            android:textStyle="italic"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/nunito_extralight"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
+
+
+</LinearLayout>

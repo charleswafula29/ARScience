@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddModelToClass"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@android:color/white"
+    >
+
+        <ImageView
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:layout_weight="4"
+            android:id="@+id/AddModel_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/circlelogo"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_weight="6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:background="@drawable/incurvedtop">
+
+
+            <TextView
+                android:id="@+id/AddModel_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:gravity="center_horizontal"
+                android:text="Model Name"
+                android:textColor="@color/LoginOrange"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/AddModel_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_extralight"
+                android:gravity="center_horizontal"
+                android:text="Static/Animated"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AddModel_name" />
+
+            <TextView
+                android:id="@+id/AddModel_description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:padding="22dp"
+                android:text="this is where the description goes"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/AddModel_view"
+                app:layout_constraintTop_toBottomOf="@+id/AddModel_type" />
+
+            <Button
+                android:id="@+id/AddModel_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonbackground"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="Preview model"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintBottom_toTopOf="@+id/AddModel_btnAdd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/AddModel_btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buttonbackground"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="Add to classroom"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/AddModel_progress"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:indeterminateDrawable="@drawable/progressbar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

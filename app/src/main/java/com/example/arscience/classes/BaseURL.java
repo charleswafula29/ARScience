@@ -49,5 +49,10 @@ public class BaseURL {
         return url+"studentclasses.php?Snumber="+Snumber;
     }
 
+    //Returns String response => model added or not added
+    public static String getAddmodeltoclass(String name, String uri, String sfb,String type,String desc,String code){
+        return url+"addmodeltoclass.php?name="+name+"&uri="+uri+"&sfb="+sfb+"&type="+type+"&desc="+desc+"&code="+code;
+    }
+
 
 }
