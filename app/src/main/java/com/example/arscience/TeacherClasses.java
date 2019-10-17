@@ -1,5 +1,8 @@
 package com.example.arscience;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -57,8 +60,8 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
     ProgressBar mBar;
     TextView text;
     ImageView image;
-    Button refresh;
     String teacher_id;
+    FloatingActionButton refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +98,6 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
     private void fetch(String url) {
         text.setVisibility(View.GONE);
         image.setVisibility(View.GONE);
-        refresh.setVisibility(View.GONE);
         mBar.setVisibility(View.VISIBLE);
 
         recyclerView.setHasFixedSize(true);
@@ -119,9 +121,10 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
                             if(jsonArray.length() == 0){
                                 text.setVisibility(View.VISIBLE);
                                 image.setVisibility(View.VISIBLE);
-                                refresh.setVisibility(View.VISIBLE);
                                 Toast.makeText(TeacherClasses.this, "You don't have any classes", Toast.LENGTH_LONG).show();
                             }
+
+                            classList.clear();
 
                             for(int i=0 ; i<jsonArray.length();i++){
                                 JSONObject object=jsonArray.getJSONObject(i);
@@ -145,7 +148,6 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
                 mBar.setVisibility(View.GONE);
                 text.setVisibility(View.VISIBLE);
                 image.setVisibility(View.VISIBLE);
-                refresh.setVisibility(View.VISIBLE);
 
                 String message = null;
                 if (error instanceof NetworkError) {
@@ -267,6 +269,32 @@ public class TeacherClasses extends AppCompatActivity implements RecyclerItemTou
                 }
             });
 
+        }
+
+        else if(item.getItemId() == R.id.Menu_logout){
+
+            final android.support.v7.app.AlertDialog.Builder builder= new android.support.v7.app.AlertDialog.Builder(TeacherClasses.this);
+            builder.setMessage("Are you sure you want to End Session?");
+            builder.setCancelable(true);
+            builder.setIcon(R.drawable.circlelogo);
+            builder.setTitle("End Session");
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Paper.book().write("Teacher_id","none");
+                    Paper.book().write("Snumber","none");
+                    startActivity(new Intent(TeacherClasses.this,Login.class));
+                    finish();
+                }
+            });
+            android.support.v7.app.AlertDialog alertDialog= builder.create();
+            alertDialog.show();
         }
         return super.onOptionsItemSelected(item);
     }

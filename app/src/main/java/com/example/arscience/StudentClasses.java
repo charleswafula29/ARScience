@@ -1,5 +1,8 @@
 package com.example.arscience;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,7 +59,7 @@ public class StudentClasses extends AppCompatActivity {
     ProgressBar mBar;
     TextView text;
     ImageView image;
-    Button refresh;
+    FloatingActionButton refresh;
 
 
     @Override
@@ -95,7 +98,6 @@ public class StudentClasses extends AppCompatActivity {
     private void fetchclasses(String url) {
         text.setVisibility(View.GONE);
         image.setVisibility(View.GONE);
-        refresh.setVisibility(View.GONE);
         mBar.setVisibility(View.VISIBLE);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -112,9 +114,10 @@ public class StudentClasses extends AppCompatActivity {
                             if(jsonArray.length() == 0){
                                 text.setVisibility(View.VISIBLE);
                                 image.setVisibility(View.VISIBLE);
-                                refresh.setVisibility(View.VISIBLE);
                                 Toast.makeText(StudentClasses.this, "You don't have any classes", Toast.LENGTH_LONG).show();
                             }
+
+                            list.clear();
 
                             for(int i=0 ; i<jsonArray.length();i++){
                                 JSONObject object=jsonArray.getJSONObject(i);
@@ -139,7 +142,6 @@ public class StudentClasses extends AppCompatActivity {
                 mBar.setVisibility(View.GONE);
                 text.setVisibility(View.VISIBLE);
                 image.setVisibility(View.VISIBLE);
-                refresh.setVisibility(View.VISIBLE);
 
                 String message = null;
                 if (error instanceof NetworkError) {
@@ -258,8 +260,32 @@ public class StudentClasses extends AppCompatActivity {
 
             });
 
-        }else if(item.getItemId() == R.id.Menu_logout){
-            Toast.makeText(this, "Logout will happend", Toast.LENGTH_SHORT).show();
+        }
+        else if(item.getItemId() == R.id.Menu_logout){
+
+            final android.support.v7.app.AlertDialog.Builder builder= new android.support.v7.app.AlertDialog.Builder(StudentClasses.this);
+            builder.setMessage("Are you sure you want to End Session?");
+            builder.setCancelable(true);
+            builder.setIcon(R.drawable.circlelogo);
+            builder.setTitle("End Session");
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Paper.book().write("Teacher_id","none");
+                    Paper.book().write("Snumber","none");
+                    startActivity(new Intent(StudentClasses.this,StudentLogin.class));
+                    finish();
+                }
+            });
+            android.support.v7.app.AlertDialog alertDialog= builder.create();
+            alertDialog.show();
+
         }
         return super.onOptionsItemSelected(item);
     }

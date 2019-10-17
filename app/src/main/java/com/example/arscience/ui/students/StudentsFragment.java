@@ -1,6 +1,7 @@
 package com.example.arscience.ui.students;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -53,8 +54,8 @@ public class StudentsFragment extends Fragment {
     ProgressBar mBar;
     TextView text;
     ImageView imageView;
-    Button refresh;
     String code;
+    FloatingActionButton refresh;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -89,7 +90,6 @@ public class StudentsFragment extends Fragment {
     private void fetch(String url, View root) {
         text.setVisibility(View.GONE);
         imageView.setVisibility(View.GONE);
-        refresh.setVisibility(View.GONE);
         mBar.setVisibility(View.VISIBLE);
 
         StringRequest stringRequest= new StringRequest(Request.Method.GET,
@@ -106,9 +106,10 @@ public class StudentsFragment extends Fragment {
                     if(jsonArray.length() == 0){
                         text.setVisibility(View.VISIBLE);
                         imageView.setVisibility(View.VISIBLE);
-                        refresh.setVisibility(View.VISIBLE);
                         Toast.makeText(root.getContext(), "No students enrolled", Toast.LENGTH_SHORT).show();
                     }
+
+                    list.clear();
 
                     for(int i=0 ; i<jsonArray.length();i++){
                         JSONObject object=jsonArray.getJSONObject(i);
@@ -129,7 +130,6 @@ public class StudentsFragment extends Fragment {
                 mBar.setVisibility(View.GONE);
                 text.setVisibility(View.VISIBLE);
                 imageView.setVisibility(View.VISIBLE);
-                refresh.setVisibility(View.VISIBLE);
 
                 String message = null;
                 if (error instanceof NetworkError) {

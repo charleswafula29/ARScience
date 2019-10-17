@@ -59,5 +59,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/CourseworkFragment_Refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_refresh"
+        android:tint="@color/Pink"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 </android.support.constraint.ConstraintLayout>

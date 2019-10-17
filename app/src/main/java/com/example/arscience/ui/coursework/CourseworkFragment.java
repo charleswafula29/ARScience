@@ -1,6 +1,7 @@
 package com.example.arscience.ui.coursework;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -49,6 +50,7 @@ public class CourseworkFragment extends Fragment {
     List<ModelsClass> list;
     ImageView image;
     TextView text;
+    FloatingActionButton refresh;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,18 +63,32 @@ public class CourseworkFragment extends Fragment {
         image=root.findViewById(R.id.CourseworkFragment_sorryimage);
         text=root.findViewById(R.id.CourseworkFragment_sorrytext);
         mBar=root.findViewById(R.id.CourseworkFragment_progressbar);
+        refresh=root.findViewById(R.id.CourseworkFragment_Refresh);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(root.getContext(),3));
         list= new ArrayList<>();
 
-        String URL= BaseURL.getCoursework(code);
+
+        feth(BaseURL.getCoursework(code),root);
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                feth(BaseURL.getCoursework(code),root);
+            }
+        });
+
+        return root;
+    }
+
+    private void feth(String url, View root) {
 
         text.setVisibility(View.GONE);
         image.setVisibility(View.GONE);
         mBar.setVisibility(View.VISIBLE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -85,8 +101,9 @@ public class CourseworkFragment extends Fragment {
                             if(jsonArray.length() == 0){
                                 text.setVisibility(View.VISIBLE);
                                 image.setVisibility(View.VISIBLE);
-
                             }
+
+                            list.clear();
 
                             for(int i=0 ; i<jsonArray.length();i++){
                                 JSONObject object=jsonArray.getJSONObject(i);
@@ -130,6 +147,5 @@ public class CourseworkFragment extends Fragment {
         RequestQueue requestQueue= Volley.newRequestQueue(root.getContext());
         requestQueue.add(stringRequest);
 
-        return root;
     }
 }

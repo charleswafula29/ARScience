@@ -51,8 +51,7 @@ public class StudentClassAdapter extends RecyclerView.Adapter<StudentClassAdapte
             public void onClick(View view) {
                 String longcode = studentClass.getClasscode();
                 String code= longcode.substring(6,14);
-                //Intent intent=new Intent(mCtx, StudentHomepage.class);
-                Intent intent=new Intent(mCtx, MainActivity.class);
+                Intent intent=new Intent(mCtx, StudentHomepage.class);
                 Paper.init(mCtx);
                 Paper.book().write("Clickedcode",code);
                 mCtx.startActivity(intent);
