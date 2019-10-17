@@ -6,17 +6,58 @@
     android:layout_height="match_parent"
     android:background="@drawable/classesback">
 
-    <TextView
-        android:id="@+id/text_home"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/CourseworkFragment_RecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:fontFamily="@font/nunito_extralight"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/CourseworkFragment_sorrytext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_extralight"
+        android:text="Sorry, No models found!"
+        android:textAllCaps="false"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CourseworkFragment_sorryimage" />
+
+    <ImageView
+        android:id="@+id/CourseworkFragment_sorryimage"
+        android:layout_width="147dp"
+        android:layout_height="145dp"
+        android:src="@drawable/sorryicon"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/CourseworkFragment_progressbar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:indeterminateDrawable="@drawable/progressbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
 </android.support.constraint.ConstraintLayout>

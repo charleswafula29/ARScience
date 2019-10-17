@@ -54,5 +54,15 @@ public class BaseURL {
         return url+"addmodeltoclass.php?name="+name+"&uri="+uri+"&sfb="+sfb+"&type="+type+"&desc="+desc+"&code="+code;
     }
 
+    //returns json array 'Models' of model's details
+    public static String getCoursework(String code){
+        return url+"courseworklist.php?code="+code;
+    }
+
+    //returns String response => model removed or not removed
+    public static String getRemoveModelFromClass(String name, String uri, String sfb,String type,String desc,String code){
+        return url+"removemodelfromclass.php?name="+name+"&uri="+uri+"&sfb="+sfb+"&type="+type+"&desc="+desc+"&code="+code;
+    }
+
 
 }

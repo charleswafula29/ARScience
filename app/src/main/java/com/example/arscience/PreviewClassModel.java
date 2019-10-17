@@ -26,39 +26,40 @@ import com.example.arscience.classes.BaseURL;
 
 import io.paperdb.Paper;
 
-public class AddModelToClass extends AppCompatActivity {
+public class PreviewClassModel extends AppCompatActivity {
 
     private int imageUri;
-    private String imagename,realname,type,description,code;
+    private String name,sfbname,type,description,code;
     private ImageView imageView;
     private TextView txtname, txttype, txtdesc;
-    private Button btnadd,preview;
+    private Button btndelete,preview;
     private ProgressBar mBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_model_to_class);
+        setContentView(R.layout.activity_preview_class_model);
 
         Paper.init(this);
         code=Paper.book().read("Classcode");
 
-        imageView=findViewById(R.id.AddModel_image);
-        txtname=findViewById(R.id.AddModel_name);
-        txttype=findViewById(R.id.AddModel_type);
-        txtdesc=findViewById(R.id.AddModel_description);
-        btnadd=findViewById(R.id.AddModel_btnAdd);
-        preview=findViewById(R.id.AddModel_view);
-        mBar=findViewById(R.id.AddModel_progress);
+        imageView=findViewById(R.id.PreviewModel_image);
+        txtname=findViewById(R.id.PreviewModel_name);
+        txttype=findViewById(R.id.PreviewModel_type);
+        txtdesc=findViewById(R.id.PreviewModel_description);
+        btndelete=findViewById(R.id.PreviewModel_delete);
+        preview=findViewById(R.id.PreviewModel_view);
+        mBar=findViewById(R.id.PreviewModel_progress);
+
 
         Intent intent= getIntent();
-        imagename=intent.getStringExtra("imagename");
-        realname=intent.getStringExtra("realmodelname");
+        name=intent.getStringExtra("imagename");
+        sfbname=intent.getStringExtra("realmodelname");
         type=intent.getStringExtra("type");
         description=intent.getStringExtra("desc");
         imageUri=intent.getExtras().getInt("image");
 
-        txtname.setText(imagename);
+        txtname.setText(name);
         txttype.setText(type);
         txtdesc.setText(description);
         imageView.setImageResource(imageUri);
@@ -67,14 +68,14 @@ public class AddModelToClass extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(type.equals("Static")){
-                    Intent intent1 = new Intent(AddModelToClass.this,MainActivity.class);
-                    intent1.putExtra("modelname",realname);
+                    Intent intent1 = new Intent(PreviewClassModel.this,MainActivity.class);
+                    intent1.putExtra("modelname",sfbname);
                     startActivity(intent1);
                 }
             }
         });
 
-        btnadd.setOnClickListener(new View.OnClickListener() {
+        btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -82,24 +83,22 @@ public class AddModelToClass extends AppCompatActivity {
                 getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                         WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
-
                 String uri= String.valueOf(imageUri);
-                String URL= BaseURL.getAddmodeltoclass(imagename,uri,realname,type,description,code);
+                String url= BaseURL.getRemoveModelFromClass(name,uri,sfbname,type,description,code);
 
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                if(response.equals("model added")){
-                                    Toast.makeText(AddModelToClass.this, "Model added to classroom", Toast.LENGTH_LONG).show();
+
+                                if(response.equals("model removed")){
+                                    Toast.makeText(PreviewClassModel.this, "Model removed from class", Toast.LENGTH_SHORT).show();
                                     finish();
-                                }else if(response.equals("not added")){
-                                    Toast.makeText(AddModelToClass.this, "Model not added!", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }else if(response.equals("already exists")){
-                                    Toast.makeText(AddModelToClass.this, "Model already exists in classroom", Toast.LENGTH_SHORT).show();
+                                }else if(response.equals("not removed")){
+                                    Toast.makeText(PreviewClassModel.this, "Not removed!", Toast.LENGTH_SHORT).show();
                                     finish();
                                 }
+
                             }
                         }, new Response.ErrorListener() {
                     @Override
@@ -125,13 +124,11 @@ public class AddModelToClass extends AppCompatActivity {
                     }
                 });
 
-                RequestQueue requestQueue= Volley.newRequestQueue(AddModelToClass.this);
+                RequestQueue requestQueue= Volley.newRequestQueue(PreviewClassModel.this);
                 requestQueue.add(stringRequest);
-
 
             }
         });
-
 
 
     }

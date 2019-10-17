@@ -19,10 +19,11 @@
         android:roundIcon="@drawable/circlelogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PreviewClassModel"></activity>
         <activity
             android:name=".AddModelToClass"
             android:screenOrientation="portrait"
-            android:theme="@style/AppNoBar"/>
+            android:theme="@style/AppNoBar" />
         <activity
             android:name=".StudentLogin"
             android:screenOrientation="portrait"

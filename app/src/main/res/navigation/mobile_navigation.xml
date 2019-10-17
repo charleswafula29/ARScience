@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.arscience.ui.home.CourseworkFragment"
+        android:name="com.example.arscience.ui.coursework.CourseworkFragment"
         android:label="@string/title_Coursework"
         tools:layout="@layout/fragment_coursework" />
 

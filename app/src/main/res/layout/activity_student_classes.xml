@@ -23,8 +23,8 @@
     <ProgressBar
         android:visibility="gone"
         android:id="@+id/StudentClassProgressBar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:indeterminateDrawable="@drawable/progressbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,15 +32,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:visibility="gone"
         android:id="@+id/StudentClassnotfoundImage"
         android:layout_width="147dp"
         android:layout_height="145dp"
         android:src="@drawable/sorryicon"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.377" />
 
     <TextView
         android:visibility="gone"
@@ -50,13 +51,13 @@
         android:fontFamily="@font/nunito_extralight"
         android:text="Sorry, No classes found!"
         android:textAllCaps="false"
-        android:textColor="@color/LoginOrange"
-        android:textSize="20sp"
+        android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/StudentClassnotfoundImage"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/StudentClassnotfoundImage" />
 
     <Button
         android:id="@+id/StudentClassRefresh"
@@ -64,12 +65,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/buttonbackground"
+        android:background="@drawable/pink_button"
         android:fontFamily="@font/nunito_extralight"
         android:padding="5dp"
         android:text="Refresh"
         android:textAllCaps="false"
-        android:textColor="@android:color/white"
+        android:textColor="@color/LoginOrange"
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
