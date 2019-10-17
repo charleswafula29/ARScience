@@ -70,6 +70,10 @@ public class AddModelToClass extends AppCompatActivity {
                     Intent intent1 = new Intent(AddModelToClass.this,MainActivity.class);
                     intent1.putExtra("modelname",realname);
                     startActivity(intent1);
+                }else if(type.equals("Animated")){
+                    Intent intent2 = new Intent(AddModelToClass.this,Animation.class);
+                    intent2.putExtra("modelname",realname);
+                    startActivity(intent2);
                 }
             }
         });

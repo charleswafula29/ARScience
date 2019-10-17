@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.arscience.Animation;
 import com.example.arscience.MainActivity;
 import com.example.arscience.PreviewClassModel;
 import com.example.arscience.R;
@@ -49,6 +50,10 @@ public class StudentmodelslistAdapter extends RecyclerView.Adapter<Studentmodels
                     Intent intent1 = new Intent(ctx, MainActivity.class);
                     intent1.putExtra("modelname",student.getSfb());
                     ctx.startActivity(intent1);
+                }else if(student.getType().equals("Animated")){
+                    Intent intent2 = new Intent(ctx, Animation.class);
+                    intent2.putExtra("modelname",student.getSfb());
+                    ctx.startActivity(intent2);
                 }
             }
         });

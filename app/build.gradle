@@ -28,6 +28,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.12.0'
+    implementation 'com.google.ar.sceneform:animation:1.12.0'
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'io.paperdb:paperdb:2.6'
@@ -70,3 +71,14 @@ sceneform.asset('sampledata/rack.obj',
         'default',
         'sampledata/rack.sfa',
         'src/main/assets/rack')
+
+
+sceneform.asset('sampledata/rotating_earth/1448_EarthRotation_LODa.fbx',
+        'default',
+        'sampledata/rotating_earth/1448_EarthRotation_LODa.sfa',
+        'src/main/assets/animated_earth')
+
+sceneform.asset('sampledata/moving_skeleton/58_Movement_LODa_r01.fbx',
+        'default',
+        'sampledata/moving_skeleton/58_Movement_LODa_r01.sfa',
+        'src/main/assets/animated_skeleton')

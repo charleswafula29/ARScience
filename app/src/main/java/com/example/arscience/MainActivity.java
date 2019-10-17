@@ -23,9 +23,6 @@ import java.util.List;
 
       private ArFragment arFragment;
       String model;
-//      private RecyclerView recycler;
-//      private List<SingleModel> list;
-//      private SingleModelAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +31,6 @@ import java.util.List;
 
         Intent intent = getIntent();
         model=intent.getStringExtra("modelname");
-//        recycler=findViewById(R.id.SingleModelRecycler);
-//        recycler.setHasFixedSize(true);
-//        recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-//        list=new ArrayList<>();
-//
-//        list.add(new SingleModel(R.drawable.circlelogo,"Earth image"));
-//        list.add(new SingleModel(R.drawable.ic_email,"test image"));
-//        list.add(new SingleModel(R.drawable.ic_class,"later image"));
-//        list.add(new SingleModel(R.drawable.circlelogo,"Earth image"));
-//        list.add(new SingleModel(R.drawable.circlelogo,"Earth image"));
-//
-//        adapter=new SingleModelAdapter(this,list);
-//        recycler.setAdapter(adapter);
 
         arFragment= (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
         assert arFragment != null;

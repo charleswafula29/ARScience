@@ -19,7 +19,8 @@
         android:roundIcon="@drawable/circlelogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PreviewClassModel"></activity>
+        <activity android:name=".Animation"></activity>
+        <activity android:name=".PreviewClassModel" />
         <activity
             android:name=".AddModelToClass"
             android:screenOrientation="portrait"

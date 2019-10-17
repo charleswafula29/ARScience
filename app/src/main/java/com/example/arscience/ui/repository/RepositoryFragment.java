@@ -38,9 +38,11 @@ public class RepositoryFragment extends Fragment {
         list.add(new Repository(R.drawable.earth,"Earth planet","Static",desc,"earth_ball.sfb"));
         list.add(new Repository(R.drawable.jupiter,"Jupiter planet","Static",desc,"13905_Jupiter_V1_l3.sfb"));
         list.add(new Repository(R.drawable.windmill,"Windmill","Static",desc,"PUSHILIN_wind_turbine.sfb"));
-        list.add(new Repository(R.drawable.rack,"testtube rack","Static",desc,"rack.sfb"));
-        list.add(new Repository(R.drawable.skeleton,"skeleton","Static",desc,"skeleton.sfb"));
-        list.add(new Repository(R.drawable.microscope,"microscope","Static",desc,"model.sfb"));
+        list.add(new Repository(R.drawable.rack,"Testtube rack","Static",desc,"rack.sfb"));
+        list.add(new Repository(R.drawable.skeleton,"Skeleton","Static",desc,"skeleton.sfb"));
+        list.add(new Repository(R.drawable.microscope,"Microscope","Static",desc,"model.sfb"));
+        list.add(new Repository(R.drawable.skeleton,"Skeleton","Animated",desc,"animated_skeleton.sfb"));
+        list.add(new Repository(R.drawable.earth,"Planet Earth","Animated",desc,"animated_earth.sfb"));
 
         adapter=new RepositoryAdapter(root.getContext(),list);
         recyclerView.setLayoutManager(new GridLayoutManager(root.getContext(),3));

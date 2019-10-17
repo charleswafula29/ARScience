@@ -71,6 +71,10 @@ public class PreviewClassModel extends AppCompatActivity {
                     Intent intent1 = new Intent(PreviewClassModel.this,MainActivity.class);
                     intent1.putExtra("modelname",sfbname);
                     startActivity(intent1);
+                }else if(type.equals("Animated")){
+                    Intent intent2 = new Intent(PreviewClassModel.this,Animation.class);
+                    intent2.putExtra("modelname",sfbname);
+                    startActivity(intent2);
                 }
             }
         });
